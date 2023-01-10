@@ -1,5 +1,5 @@
-create database c1022g1_module_3;
-use c1022g1_module_3;
+create database demo_table;
+use demo_table;
 -- Tạo bảng 
 create table student (
 id int,
@@ -7,16 +7,18 @@ id int,
 score double
 );
 -- Đưa dữ liệu vào bảng
-insert into student (id, name, score) values (1, "Quang Khải", 2.6);
--- Lấy dữ liệu ra xem
+insert into student (id, name, score, `status`) values (1, "Quang Khải", 2.6, "abccsfd");
+insert into student (id, name, score, `status`) values (5, "Quang Khải", 4.8, "shgaka");
 select * from student;
 select name 'Tên', score 'Điểm' from student;
 -- Sửa điểm
+SET SQL_SAFE_UPDATES = 0;
 update student
-set score = 5.0
+set score = 5.1
 where id = 1;
+set sql_safe_updates = 1;
 -- Xóa student theo id
 delete from student where id = 1;
 -- Thêm cột status trong table student
 alter table student add `status` varchar(40);
-drop database c1022g1_module_3;
+drop database demo_table;
