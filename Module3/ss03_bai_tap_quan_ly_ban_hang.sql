@@ -39,6 +39,18 @@ insert into order_detail values (2, 1, 1);
 insert into order_detail values (3, 1, 8);
 insert into order_detail values (2, 5, 4);
 insert into order_detail values (2, 3, 3);
+select o_id, o_date, o_total_price from `order`;
+select c_name as 'khách hàng', p_name as 'sản phẩm' from order_detail
+join `order` on order_detail.o_id = `order`.o_id
+join product on order_detail.p_id = product.p_id
+join customer on customer.c_id = `order`.c_id;
+select customer.c_name from customer
+left join `order` on customer.c_id = `order`.c_id
+where `order`.c_id is null;
+select `order`.o_id, `order`.o_date, order_detail.o_d_qty*product.p_price as o_total_price
+from order_detail
+join `order` on order_detail.o_id = `order`.o_id
+join product on order_detail.p_id = product.p_id;
 select * from product;
 select * from `order`;
 select * from order_detail;
