@@ -130,19 +130,19 @@ insert into khach_hang (ma_khach_hang, ho_ten, ngay_sinh, gioi_tinh, so_cmnd, so
 insert into khach_hang (ma_khach_hang, ho_ten, ngay_sinh, gioi_tinh, so_cmnd, so_dien_thoai, email, dia_chi, ma_loai_khach) values (8, 'Nguyễn Thị Hào', '1999-04-08', 0, '965656433', '0763212345', 'haohao99@gmail.com', '55 Nguyễn Văn Linh, Kon Tum', 3);
 insert into khach_hang (ma_khach_hang, ho_ten, ngay_sinh, gioi_tinh, so_cmnd, so_dien_thoai, email, dia_chi, ma_loai_khach) values (9, 'Trần Đại Danh', '1994-07-01', 1, '432341235', '0643343433', 'danhhai99@gmail.com', '24 Lý Thường Kiệt, Quảng Ngãi', 1);
 insert into khach_hang (ma_khach_hang, ho_ten, ngay_sinh, gioi_tinh, so_cmnd, so_dien_thoai, email, dia_chi, ma_loai_khach) values (10, 'Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '0987654321', 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng', 2);
-insert into loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vụ) values (1, 'Villa');
-insert into loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vụ) values (2, 'House');
-insert into loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vụ) values (3, 'Room');
+insert into loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vu) values (1, 'Villa');
+insert into loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vu) values (2, 'House');
+insert into loai_dich_vu (ma_loai_dich_vu, ten_loai_dich_vu) values (3, 'Room');
 insert into kieu_thue (ma_kieu_thue, ten_kieu_thue) values (1, 'year');
 insert into kieu_thue (ma_kieu_thue, ten_kieu_thue) values (2, 'month');
 insert into kieu_thue (ma_kieu_thue, ten_kieu_thue) values (3, 'day');
 insert into kieu_thue (ma_kieu_thue, ten_kieu_thue) values (4, 'hour');
-insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vụ_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (1, 'Villa Beach Front', 25000, 1000000, 10, 'vip', 'Có hồ bơi', 500, 4, 'null', 3, 1);
-insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vụ_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (2, 'House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', null, 3, 'null', 2, 2);
-insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vụ_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (3, 'Room Twin 01', '5000', 1000000, 2, 'normal', 'Có tivi', null, null, '1 Xe máy, 1 Xe đạp', 4, 3);
-insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vụ_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (4, 'Villa No Beach Front', 22000, 9000000, 8, 'normal', 'Có hồ bơi', 300, 3, 'null', 3, 1);
-insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vụ_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (5, 'House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', null, 2, 'null', 3, 2);
-insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vụ_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (6, 'Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', null, null, '1 Xe máy', 4, 3);
+insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (1, 'Villa Beach Front', 25000, 1000000, 10, 'vip', 'Có hồ bơi', 500, 4, 'null', 3, 1);
+insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (2, 'House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', null, 3, 'null', 2, 2);
+insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (3, 'Room Twin 01', '5000', 1000000, 2, 'normal', 'Có tivi', null, null, '1 Xe máy, 1 Xe đạp', 4, 3);
+insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (4, 'Villa No Beach Front', 22000, 9000000, 8, 'normal', 'Có hồ bơi', 300, 3, 'null', 3, 1);
+insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (5, 'House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', null, 2, 'null', 3, 2);
+insert into dich_vu (ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu) values (6, 'Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', null, null, '1 Xe máy', 4, 3);
 insert into dich_vu_di_kem (ma_dich_vu_di_kem, ten_dich_vu_di_kem, gia, don_vi, trang_thai) values (1, 'Karaoke', 10000, 'giờ', 'tiện nghi, hiện tại');
 insert into dich_vu_di_kem (ma_dich_vu_di_kem, ten_dich_vu_di_kem, gia, don_vi, trang_thai) values (2, 'Thuê xe máy', 10000, 'chiếc', 'hỏng 1 xe');
 insert into dich_vu_di_kem (ma_dich_vu_di_kem, ten_dich_vu_di_kem, gia, don_vi, trang_thai) values (3, 'Thuê xe đạp', 20000, 'chiếc', 'tốt');
@@ -169,4 +169,45 @@ insert into hop_dong_chi_tiet (ma_hop_dong_chi_tiet, so_luong, ma_hop_dong, ma_d
 insert into hop_dong_chi_tiet (ma_hop_dong_chi_tiet, so_luong, ma_hop_dong, ma_dich_vu_di_kem) values (6, 1, 1, 3);
 insert into hop_dong_chi_tiet (ma_hop_dong_chi_tiet, so_luong, ma_hop_dong, ma_dich_vu_di_kem) values (7, 2, 1, 2);
 insert into hop_dong_chi_tiet (ma_hop_dong_chi_tiet, so_luong, ma_hop_dong, ma_dich_vu_di_kem) values (8, 2, 12, 2);
+select * from vi_tri;
+select * from trinh_do;
+select * from bo_phan;
+select * from nhan_vien;
+select * from loai_khach;
+select * from khach_hang;
+select * from loai_dich_vu;
+select * from kieu_thue;
+select * from dich_vu;
+select * from dich_vu_di_kem;
+select * from hop_dong;
+select * from hop_dong_chi_tiet;
+select ma_nhan_vien , ho_ten from nhan_vien 
+where 
+(substring_index(ho_ten, ' ', -1) like 'H%'
+or substring_index(ho_ten, ' ', -1) like 'K%'
+or substring_index(ho_ten, ' ', -1) like 'T%')
+and length(ho_ten) <= 15;
+select khach_hang.ma_khach_hang, ho_ten, ngay_sinh, dia_chi from khach_hang 
+where 
+(year(curdate()) - year(ngay_sinh)) between 18 and 50
+and dia_chi like '%Đà Nẵng'
+or dia_chi like '%Quảng Trị';
+select khach_hang.ma_khach_hang , khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as 'Số lần đặt phòng'
+from khach_hang 
+inner join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+inner join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
+where loai_khach.ten_loai_khach = 'Diamond'
+group by hop_dong.ma_khach_hang
+order by count(hop_dong.ma_khach_hang);
+select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, hop_dong.ma_hop_dong, 
+dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, 
+sum((dich_vu.chi_phi_thue + ifnull((hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia), 0))) as 'Tổng tiền'
+from hop_dong
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+right join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+inner join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
+group by hop_dong.ma_hop_dong, khach_hang.ma_khach_hang
+order by khach_hang.ma_khach_hang;
 -- drop database furama;
