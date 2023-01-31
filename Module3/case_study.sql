@@ -95,6 +95,7 @@ ma_dich_vu_di_kem int not null,
 foreign key (ma_hop_dong) references hop_dong(ma_hop_dong),
 foreign key (ma_dich_vu_di_kem) references dich_vu_di_kem(ma_dich_vu_di_kem)
 );
+-- 1.Thêm mới thông tin cho tất cả các bảng có trong CSDL để có thể thoả mãn các yêu cầu bên dưới. 
 insert into vi_tri (ma_vi_tri, ten_vi_tri) values 
 (1, 'Quản lý'),
 (2, 'Nhân viên');
@@ -193,17 +194,21 @@ select * from dich_vu;
 select * from dich_vu_di_kem;
 select * from hop_dong;
 select * from hop_dong_chi_tiet;
+-- 2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 select ma_nhan_vien , ho_ten from nhan_vien 
 where 
 (substring_index(ho_ten, ' ', -1) like 'H%'
 or substring_index(ho_ten, ' ', -1) like 'K%'
 or substring_index(ho_ten, ' ', -1) like 'T%')
 and length(ho_ten) <= 15;
+-- 3. Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”. 
 select khach_hang.ma_khach_hang, ho_ten, ngay_sinh, dia_chi from khach_hang 
 where 
 (year(curdate()) - year(ngay_sinh)) between 18 and 50
 and dia_chi like '%Đà Nẵng'
 or dia_chi like '%Quảng Trị';
+-- 4. Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng 
+-- của khách hàng. Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”. 
 select khach_hang.ma_khach_hang , khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as 'Số lần đặt phòng'
 from khach_hang 
 inner join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
@@ -211,6 +216,9 @@ inner join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
 where loai_khach.ten_loai_khach = 'Diamond'
 group by hop_dong.ma_khach_hang
 order by count(hop_dong.ma_khach_hang);
+-- 5. Hiển thị ma_khach_hang, ho_ten, ten_loai_khach, ma_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tong_tien 
+-- (Với tổng tiền được tính theo công thức như sau: Chi Phí Thuê + Số Lượng * Giá, với Số Lượng và Giá là từ bảng dich_vu_di_kem, hop_dong_chi_tiet) 
+-- cho tất cả các khách hàng đã từng đặt phòng. (những khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra). 
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, hop_dong.ma_hop_dong, 
 dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, 
 sum((dich_vu.chi_phi_thue + ifnull((hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia), 0))) as 'Tổng tiền'
