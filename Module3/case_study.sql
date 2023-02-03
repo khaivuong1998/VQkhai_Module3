@@ -279,7 +279,7 @@ group by ma_hop_dong;
 -- những khách hàng có ten_loai_khach là “Diamond” và có dia_chi ở “Vinh” hoặc “Quảng Ngãi”. 
 select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem 
 from khach_hang kh
-join loai_khach lk on kh.ma_loai_khach = lk.ma_loai_khach
+join loai_khach lk on kh.ma_loai_khach = lk.ma_loai_khach	
 join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
 join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
 join dich_vu_di_kem dvdk on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
@@ -290,7 +290,7 @@ or kh.dia_chi like '% Quảng Ngãi';
 -- (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), tien_dat_coc của tất cả các dịch vụ đã từng được khách hàng 
 -- đặt vào 3 tháng cuối năm 2020 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021. 
 select hd.ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, dv.ma_dich_vu, dv.ten_dich_vu,
-sum(ifnull(hdct.so_luong,0)) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
+sum(ifnull(hdct.so_luong, 0)) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
 from hop_dong hd
 left join nhan_vien nv on hd.ma_nhan_vien = nv.ma_nhan_vien
 left join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
@@ -314,6 +314,7 @@ left join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_
 group by hdct.ma_dich_vu_di_kem
 having sum(ifnull(hdct.so_luong, 0)) = (select max(so_luong)
 from hop_dong_chi_tiet);
+set sql_mode=(select replace(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. Thông tin hiển thị bao gồm 
 -- ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem). 
 select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem,
