@@ -20,9 +20,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<%--    <link rel="stylesheet" href="/css/bootstrap.css">--%>
 </head>
 <body>
-<form action="/login" method="post">
+<form action="/Servlet" method="post">
     <div class="login">
         <h2>Login</h2>
         <input type="text" name="username" size="30"  placeholder="username" />

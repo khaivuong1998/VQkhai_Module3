@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Ứng dụng Product Discount Calculator</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,30 +12,13 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<form action="/DiscountServlet" method="post">
-    <div class="form-group">
-        <label for="price1">Product Description</label>
-        <input type="text"
-               class="form-control" name="description" id="description" aria-describedby="helpId"
-               placeholder="Input Product">
-
+<form>
+    <div class="login">
+        <h2>Login</h2>
+        <input type="text" name="username" size="30"  placeholder="username" />
+        <input type="password" name="password" size="30" placeholder="password" />
+        <input type="submit" value="Sign in"/>
     </div>
-    <div class="form-group">
-        <label for="price1">List Price</label>
-        <input type="text"
-               class="form-control" name="list_price" id="price1" aria-describedby="helpId" placeholder="Input Price">
-<%--        <small id="helpId1" class="form-text text-muted">Enter number</small>--%>
-    </div>
-    <div class="form-group2">
-        <label for="price2">Discount Percent</label>
-        <input type="text"
-               class="form-control" name="discount_percent" id="price2" aria-describedby="helpId"
-               placeholder="Input Discount Percent">
-<%--        <small id="helpId2" class="form-text text-muted">Enter number % Exp 10 == 10% </small>--%>
-    </div>
-    <button type="submit" class="btn btn-outline-primary">Result</button>
-    <h2>Discount Amount: ${description}</h2>
-    <h2>Discount Price: ${discountPrice} $</h2>
 </form>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
