@@ -34,8 +34,8 @@
 <%--        <small id="helpId2" class="form-text text-muted">Enter number % Exp 10 == 10% </small>--%>
     </div>
     <button type="submit" class="btn btn-outline-primary">Result</button>
-    <h2>Discount Amount: ${description}</h2>
-    <h2>Discount Price: ${discountPrice} $</h2>
+    <h2>Discount Amount: ${discountAmount}</h2>
+    <h2>Discount Price: ${discountPrice}</h2>
 </form>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

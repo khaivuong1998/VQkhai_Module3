@@ -19,7 +19,7 @@ public class DiscountServlet extends HttpServlet {
         double discountAmount = listPrice * discountPercent * 0.01;
         double discountPrice = listPrice - discountAmount;
 
-        request.setAttribute("description", description);
+        request.setAttribute("discountAmount", discountAmount);
         request.setAttribute("discountPrice", discountPrice);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
