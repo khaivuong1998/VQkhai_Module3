@@ -3,38 +3,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hiển thị danh sách khách hàng</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style>
-        .menu{
-            width: 150px;
-        }
-    </style>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a href="/customer">Hiển thị</a>
+<a href="/student">Click</a>
 <table class="table">
     <thead>
-    <h2 style="text-align: center">Danh sách khách hàng</h2>
-    <tr style="font-weight: bold">
-        <th style="padding-left: 35px;">Tên</th>
-        <th>Ngày sinh</th>
-        <th>Địa chỉ</th>
-        <th>Ảnh</th>
+    <tr>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Điểm</th>
+        <th>Xếp loại</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="customer" items="${customerList}">
+    <c:forEach var="student" items="${studentList}" varStatus="loop">
         <tr>
-            <td style="padding-left: 35px">${customer.name}</td>
-            <td>${customer.dateOfBirth}</td>
-            <td>${customer.adress}</td>
-            <td><img class="menu" src="${customer.img}"></td>
+            <td>${loop.count}</td>
+            <td><c:out value="${student.getName()}"/></td>
+            <td>${student.score}</td>
+            <td>
+                <c:if test="${student.score < 5}">
+                    Yếu
+                </c:if>
+                <c:if test="${student.score >= 5 && student.score <=7}">
+                    Trung Bình
+                </c:if>
+                <c:if test="${student.score > 7}">
+                    Out Trình
+                </c:if>
+            </td>
         </tr>
     </c:forEach>
     </tbody>

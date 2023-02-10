@@ -3,42 +3,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Hiển thị danh sách khách hàng</title>
+    <title>Ứng dụng Calculator</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style>
-        .menu{
-            width: 150px;
-        }
-    </style>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a href="/customer">Hiển thị</a>
-<table class="table">
-    <thead>
-    <h2 style="text-align: center">Danh sách khách hàng</h2>
-    <tr style="font-weight: bold">
-        <th style="padding-left: 35px;">Tên</th>
-        <th>Ngày sinh</th>
-        <th>Địa chỉ</th>
-        <th>Ảnh</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="customer" items="${customerList}">
-        <tr>
-            <td style="padding-left: 35px">${customer.name}</td>
-            <td>${customer.dateOfBirth}</td>
-            <td>${customer.adress}</td>
-            <td><img class="menu" src="${customer.img}"></td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<form action="/calculator" method="get">
+    <div>
+        <h2>Simple Calculator</h2>
+    </div>
+    <div>
+        <input type="text" name="First operand" size="30" placeholder="enter number"/>First operand
+    </div>
+    <div>
+        <select name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>Operator
+    </div>
+    <div>
+        <input type="text" name="Second operand" size="30" placeholder="enter number"/>Second operand
+    </div>
+    <div><h2>Result:</h2></div>
+    <div>
+        <input type="submit" value="Kết quả">
+    </div>
+</form>
+<p>${result}</p>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
