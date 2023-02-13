@@ -1,4 +1,11 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: ADMIN
+  Date: 2/13/2023
+  Time: 11:24 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
@@ -13,37 +20,21 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a href="/student">Click</a>
-<table class="table">
-    <thead>
-    <tr>
-        <th>STT</th>
-        <th>Tên</th>
-        <th>Điểm</th>
-        <th>Xếp loại</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="student" items="${studentList}" varStatus="loop">
-        <tr>
-            <td>${loop.count}</td>
-            <td><c:out value="${student.getName()}"/></td>
-            <td>${student.score}</td>
-            <td>
-                <c:if test="${student.score < 5}">
-                    Yếu
-                </c:if>
-                <c:if test="${student.score >= 5 && student.score <=7}">
-                    Trung Bình
-                </c:if>
-                <c:if test="${student.score > 7}">
-                    Out Trình
-                </c:if>
-            </td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text"
+                   class="form-control" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="score">Score</label>
+            <input type="text"
+                   class="form-control" name="score" id="score">
+        </div>
+        <button type="submit">Lưu</button>
+    </form>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

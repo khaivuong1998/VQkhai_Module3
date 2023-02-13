@@ -1,3 +1,5 @@
+package com.example.ss10_demo.model;
+
 public class Student {
     private int id;
     private String name;
@@ -8,6 +10,11 @@ public class Student {
 
     public Student(int id, String name, double score) {
         this.id = id;
+        this.name = name;
+        this.score = score;
+    }
+
+    public Student(String name, double score) {
         this.name = name;
         this.score = score;
     }

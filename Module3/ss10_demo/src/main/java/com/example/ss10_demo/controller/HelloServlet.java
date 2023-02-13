@@ -1,4 +1,4 @@
-package com.example.ss10_demo;
+package com.example.ss10_demo.controller;
 
 import java.io.*;
 import javax.servlet.http.*;
