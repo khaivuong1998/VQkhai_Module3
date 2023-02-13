@@ -22,6 +22,7 @@
 <body>
 <h2>Product</h2>
 <a class="btn btn-primary" href="/product?actionUser=create">Create</a>
+<a class="btn btn-primary" href="/product?actionUser=search">Search</a>
 <table class="table">
     <thead>
     <tr>

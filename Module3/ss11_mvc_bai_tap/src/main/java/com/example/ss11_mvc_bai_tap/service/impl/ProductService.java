@@ -18,4 +18,19 @@ public class ProductService implements IProductService {
     public void save(Product product) {
         iProductRepository.save(product);
     }
+
+    @Override
+    public List<Product> search(String name) {
+        return iProductRepository.search(name);
+    }
+
+    @Override
+    public void delete(Product product) {
+        iProductRepository.delete(product);
+    }
+
+    @Override
+    public Product findById(int id) {
+        return iProductRepository.findById(id);
+    }
 }

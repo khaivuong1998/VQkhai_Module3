@@ -7,4 +7,10 @@ import java.util.List;
 public interface IProductRepository {
     List<Product> findAll();
     void save(Product product);
+
+    List<Product> search(String name);
+
+    void delete(Product product);
+
+    Product findById(int id);
 }
