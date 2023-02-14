@@ -40,10 +40,11 @@
       <td>${user.name}</td>
       <td>${user.email}</td>
       <td>${user.country}</td>
-      <td><a href="/user?actionUser=edit&id=${user.id}">Edit</a>
+      <td>
+        <a class="btn btn-secondary" href="/user?actionUser=edit&id=${user.id}">Edit</a>
       </td>
       <td>
-        <a href="/user?actionUser=delete&id=${user.id}">Delete</a>
+        <a class="btn btn-danger" href="/user?actionUser=delete&id=${user.id}">Delete</a>
       </td>
     </tr>
   </c:forEach>

@@ -19,4 +19,19 @@ public class UserService implements IUserService {
     public void save(User user) {
         iUserRepository.save(user);
     }
+
+    @Override
+    public User findById(int id) {
+        return iUserRepository.findById(id);
+    }
+
+    @Override
+    public void delete(int id) {
+        iUserRepository.delete(id);
+    }
+
+    @Override
+    public void update(User user) {
+        iUserRepository.update(user);
+    }
 }

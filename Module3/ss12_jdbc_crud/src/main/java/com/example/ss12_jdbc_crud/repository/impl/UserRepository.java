@@ -47,4 +47,50 @@ public class UserRepository implements IUserRepository {
             e.printStackTrace();
         }
     }
+
+    public User findById(int id) {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("select * from user where id = ?;");
+            User user;
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setCountry(resultSet.getString("country"));
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void delete(int id) {
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("delete from user where id = ?;");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(User user) {
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("update user set name = ?, email= ?, country =? where id = ?;");
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getCountry());
+            preparedStatement.setInt(4, user.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
