@@ -16,6 +16,8 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         String actionUser = request.getParameter("actionUser");
         if (actionUser == null) {
             actionUser = "";
@@ -25,10 +27,16 @@ public class ProductServlet extends HttpServlet {
                 request.getRequestDispatcher("/view/create.jsp").forward(request, response);
                 break;
             case "search":
-                showSearch(request, response);
+                request.getRequestDispatcher("/view/search.jsp").forward(request, response);
                 break;
             case "delete":
                 showDelete(request, response);
+                break;
+            case "edit":
+                int id = Integer.parseInt(request.getParameter("id"));
+                Product product1 = iProductService.findById(id);
+                request.setAttribute("product1", product1);
+                request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
                 break;
             default:
                 request.setAttribute("productList", iProductService.findAll());
@@ -38,6 +46,8 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         String actionUser = request.getParameter("actionUser");
         if (actionUser == null) {
             actionUser = "";
@@ -53,13 +63,43 @@ public class ProductServlet extends HttpServlet {
                 response.sendRedirect("/product");
                 break;
             case "search":
-                showSearch(request, response);
+                String name2 = request.getParameter("name");
+                List<Product> productList = iProductService.search(name2);
+                if (productList == null) {
+                    try {
+                        request.getRequestDispatcher("/view/error404.jsp").forward(request, response);
+                    } catch (ServletException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        request.setAttribute("productList", productList);
+                        request.getRequestDispatcher("/view/list.jsp").forward(request, response);
+                    } catch (ServletException | IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 break;
             case "delete":
                 showDelete(request, response);
                 break;
+            case "edit":
+                int id = Integer.parseInt(request.getParameter("id"));
+                String name1 = request.getParameter("name1");
+                double price1 = Double.parseDouble(request.getParameter("price1"));
+                String description1 = request.getParameter("description1");
+                String producer1 = request.getParameter("producer1");
+                Product product1 = iProductService.findById(id);
+                product1.setName(name1);
+                product1.setPrice(price1);
+                product1.setProducer(producer1);
+                product1.setDescription(description1);
+                iProductService.edit(product1);
+                response.sendRedirect("/product");
+                break;
         }
     }
+
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = iProductService.findById(id);
@@ -71,6 +111,7 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     private void showDelete(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = iProductService.findById(id);
@@ -86,24 +127,6 @@ public class ProductServlet extends HttpServlet {
             try {
                 response.sendRedirect("/product");
             } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    private void showSearch(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("name");
-        List<Product> productList = iProductService.search(name);
-        if (productList == null) {
-            try {
-                request.getRequestDispatcher("/view/error404.jsp").forward(request, response);
-            } catch (ServletException | IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                request.setAttribute("productList", productList);
-                request.getRequestDispatcher("/view/search.jsp").forward(request, response);
-            } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
         }

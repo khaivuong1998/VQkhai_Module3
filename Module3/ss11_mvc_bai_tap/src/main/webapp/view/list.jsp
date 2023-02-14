@@ -21,6 +21,7 @@
 </head>
 <body>
 <h2>Product</h2>
+<a class="btn btn-primary" href="/product">Display</a>
 <a class="btn btn-primary" href="/product?actionUser=create">Create</a>
 <a class="btn btn-primary" href="/product?actionUser=search">Search</a>
 <table class="table">
@@ -43,9 +44,9 @@
             <td>${product.price}</td>
             <td>${product.description}</td>
             <td>${product.producer}</td>
-            <td><a href="/product?actionUser=edit">Edit</a>
+            <td><a class="btn btn-secondary" href="/product?actionUser=edit&id=${product.id}">Edit</a>
             </td>
-            <td><a href="/product?actionUser=delete">Delete</a>
+            <td><a class="btn btn-danger" href="/product?actionUser=delete&id=${product.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>

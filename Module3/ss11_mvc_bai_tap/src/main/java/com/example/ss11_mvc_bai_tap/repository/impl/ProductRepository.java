@@ -56,4 +56,13 @@ public class ProductRepository implements IProductRepository {
         }
         return null;
     }
+
+    @Override
+    public void edit(Product product) {
+        for (int i = 0; i < productList.size(); i++) {
+            if (product.getId() == productList.get(i).getId()) {
+                productList.set(i, productList.get(i));
+            }
+        }
+    }
 }
