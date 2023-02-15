@@ -34,8 +34,8 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "edit":
                 int id = Integer.parseInt(request.getParameter("id"));
-                Product product1 = iProductService.findById(id);
-                request.setAttribute("product1", product1);
+                Product product = iProductService.findById(id);
+                request.setAttribute("product", product);
                 request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
                 break;
             default:

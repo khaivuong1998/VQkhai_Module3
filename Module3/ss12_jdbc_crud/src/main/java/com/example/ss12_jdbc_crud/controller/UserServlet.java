@@ -35,7 +35,7 @@ public class UserServlet extends HttpServlet {
                 }
                 break;
             case "edit":
-                int id1 = Integer.parseInt(request.getParameter("id1"));
+                int id1 = Integer.parseInt(request.getParameter("id"));
                 User user = iUserService.findById(id1);
                 request.setAttribute("user", user);
                 request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
@@ -64,10 +64,10 @@ public class UserServlet extends HttpServlet {
                 response.sendRedirect("/user");
                 break;
             case "edit":
-                int id1 = Integer.parseInt(request.getParameter("id1"));
-                String name1 = request.getParameter("name1");
-                String email1 = request.getParameter("email1");
-                String country1 = request.getParameter("country1");
+                int id1 = Integer.parseInt(request.getParameter("id"));
+                String name1 = request.getParameter("name");
+                String email1 = request.getParameter("email");
+                String country1 = request.getParameter("country");
                 User user1 = iUserService.findById(id1);
                 user1.setName(name1);
                 user1.setEmail(email1);

@@ -3,6 +3,7 @@ package com.example.ss12_jdbc_crud.repository.impl;
 import com.example.ss12_jdbc_crud.model.User;
 import com.example.ss12_jdbc_crud.repository.IUserRepository;
 
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,12 +50,32 @@ public class UserRepository implements IUserRepository {
     }
 
     public User findById(int id) {
-        PreparedStatement preparedStatement = null;
+//        PreparedStatement preparedStatement = null;
+//        try {
+//            preparedStatement = BaseRepository.getConnection()
+//                    .prepareStatement("select * from user where id = ?;");
+//            preparedStatement.setInt(1, id);
+//            User user;
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            if (resultSet.next()) {
+//                user = new User();
+//                user.setId(resultSet.getInt("id"));
+//                user.setName(resultSet.getString("name"));
+//                user.setEmail(resultSet.getString("email"));
+//                user.setCountry(resultSet.getString("country"));
+//                return user;
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+        CallableStatement callableStatement = null;
         try {
-            preparedStatement = BaseRepository.getConnection()
-                    .prepareStatement("select * from user where id = ?;");
+            callableStatement = BaseRepository.getConnection()
+                    .prepareCall("call find_by_id_user(?);");
+            callableStatement.setInt(1, id);
             User user;
-            ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = callableStatement.executeQuery();
             if (resultSet.next()) {
                 user = new User();
                 user.setId(resultSet.getInt("id"));

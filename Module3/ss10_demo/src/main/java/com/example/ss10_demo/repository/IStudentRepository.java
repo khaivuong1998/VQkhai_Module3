@@ -8,4 +8,10 @@ public interface IStudentRepository {
     List<Student> findAll();
 
     void save(Student student);
+
+    Student findById(int id);
+
+    List<Student> search(String name);
+
+    void edit(Student student1);
 }

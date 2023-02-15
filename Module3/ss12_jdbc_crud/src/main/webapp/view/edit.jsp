@@ -22,21 +22,21 @@
 <body>
 <div class="container">
     <form method="post">
-        <input type="hidden" value="${user1.id}">
+        <input type="hidden" value="${user.id}">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text"
-                   class="form-control" name="name" id="name">
+                   class="form-control" name="name" id="name" value="${user.name}">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="text"
-                   class="form-control" name="email" id="email">
+                   class="form-control" name="email" id="email" value="${user.email}">
         </div>
         <div class="form-group">
             <label for="country">Country</label>
             <input type="text"
-                   class="form-control" name="country" id="country">
+                   class="form-control" name="country" id="country" value="${user.country}">
         </div>
         <button class="btn btn-primary">Update</button>
     </form>

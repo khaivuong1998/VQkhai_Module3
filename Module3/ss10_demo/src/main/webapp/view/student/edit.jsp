@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
-  Date: 2/14/2023
-  Time: 11:15 AM
+  Date: 2/15/2023
+  Time: 1:56 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Product Edit</title>
+    <title>Student Edit</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,28 +22,18 @@
 <body>
 <div class="container">
     <form method="post">
-        <input type="hidden" value="${product.id}">
+        <input type="hidden" value="${student.id}">
         <div class="form-group">
-            <label for="name1">Name</label>
+            <label for="name">Name</label>
             <input type="text"
-                   class="form-control" name="name1" id="name1" value="${product.name}">
+                   class="form-control" name="name" id="name" value="${student.name}">
         </div>
         <div class="form-group">
-            <label for="price1">Price</label>
+            <label for="score">Score</label>
             <input type="text"
-                   class="form-control" name="price1" id="price1" value="${product.price}">
+                   class="form-control" name="score" id="score" value="${student.score}">
         </div>
-        <div class="form-group">
-            <label for="description1">Description</label>
-            <input type="text"
-                   class="form-control" name="description1" id="description1" value="${product.description}">
-        </div>
-        <div class="form-group">
-            <label for="producer1">Producer</label>
-            <input type="text"
-                   class="form-control" name="producer1" id="producer1" value="${product.producer}">
-        </div>
-        <button type="submit" class="btn btn-primary">Lưu</button>
+        <button type="submit" class="btn-primary">Edit</button>
     </form>
 </div>
 <!-- Optional JavaScript -->

@@ -13,7 +13,24 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a href="/student?actionUser=create">Thêm mới</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-primary" href="/student?actionUser=create">Thêm mới</a>
+        </div>
+        <div class="col-6">
+            <form action="/student?actionUser=search" method="post">
+                <div class="form-group float-left w-75">
+                    <input type="text"
+                           class="form-control" name="name" id="name" placeholder="Name">
+                </div>
+                <div class="float-left w-25">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <table class="table">
     <thead>
     <tr>
@@ -39,6 +56,12 @@
                 <c:if test="${student.score > 7}">
                     Out Trình
                 </c:if>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="/student?actionUser=edit&id=${student.id}">Edit</a>
             </td>
         </tr>
     </c:forEach>
