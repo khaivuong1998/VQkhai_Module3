@@ -34,4 +34,12 @@ public class UserService implements IUserService {
     public void update(User user) {
         iUserRepository.update(user);
     }
+
+    @Override
+    public List<User> search(String name2) {
+        if (name2 == null) {
+            name2 = "";
+        }
+        return iUserRepository.search(name2);
+    }
 }

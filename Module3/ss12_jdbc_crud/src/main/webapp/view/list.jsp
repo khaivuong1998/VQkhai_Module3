@@ -10,47 +10,64 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>User List</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>User List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <h2 style="text-align: center">User-Manager</h2>
-<a class="btn btn-primary" href="/user">Display</a>
+<%--<a class="btn btn-primary" href="/user">Display</a>--%>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-primary" href="/user?actionUser=create">Create</a>
+        </div>
+        <div class="col-6">
+            <form action="/user?actionUser=search" method="post">
+                <div class="form-group float-left w-75">
+                    <input type="text"
+                           class="form-control" name="name" id="name" value="${user.nameSearch}" placeholder="Name">
+                </div>
+                <div class="float-left w-25">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <table class="table">
-  <thead>
-  <tr>
-    <th>STT</th>
-    <th>Tên</th>
-    <th>Email</th>
-    <th>Quốc Gia</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <c:forEach var="user" items="${userList}" varStatus="loop">
+    <thead>
     <tr>
-      <td>${loop.count}</td>
-      <td>${user.name}</td>
-      <td>${user.email}</td>
-      <td>${user.country}</td>
-      <td>
-        <a class="btn btn-secondary" href="/user?actionUser=edit&id=${user.id}">Edit</a>
-      </td>
-      <td>
-        <a class="btn btn-danger" href="/user?actionUser=delete&id=${user.id}">Delete</a>
-      </td>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Email</th>
+        <th>Quốc Gia</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
-  </c:forEach>
-  </tbody>
+    </thead>
+    <tbody>
+    <c:forEach var="user" items="${userList}" varStatus="loop">
+        <tr>
+            <td>${loop.count}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.country}</td>
+            <td>
+                <a class="btn btn-secondary" href="/user?actionUser=edit&id=${user.id}">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="/user?actionUser=delete&id=${user.id}">Delete</a>
+            </td>
+        </tr>
+    </c:forEach>
+    </tbody>
 </table>
-<a class="btn btn-primary" href="/user?actionUser=create">Create</a>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

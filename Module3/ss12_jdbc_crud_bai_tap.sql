@@ -20,4 +20,12 @@ where user.id = id;
 end //
 delimiter ;
 call find_by_id_user(?);
+delimiter //
+create procedure user_search(in `name` varchar(40))
+begin
+select * from user where user.`name` like concat("%",`name`,"%");
+end //
+delimiter ;
+drop procedure user_search;
+call user_search(?);
 set sql_safe_updates = 1;

@@ -10,4 +10,6 @@ public interface IUserService {
     User findById(int id);
     void delete(int id);
     void update(User user);
+
+    List<User> search(String name2);
 }

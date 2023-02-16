@@ -114,4 +114,28 @@ public class UserRepository implements IUserRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<User> search(String name2) {
+        List<User> userList = new ArrayList<>();
+        CallableStatement callableStatement = null;
+        try {
+            callableStatement = BaseRepository.getConnection()
+                    .prepareCall("call user_search(?);");
+            callableStatement.setString(1, name2);
+            ResultSet resultSet = callableStatement.executeQuery();
+            User user;
+            while (resultSet.next()) {
+                user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setCountry(resultSet.getString("country"));
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
 }

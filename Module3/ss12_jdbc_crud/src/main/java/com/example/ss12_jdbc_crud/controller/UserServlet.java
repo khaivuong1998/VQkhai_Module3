@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "UserServlet", value = "/user")
 public class UserServlet extends HttpServlet {
@@ -74,6 +75,13 @@ public class UserServlet extends HttpServlet {
                 user1.setCountry(country1);
                 iUserService.update(user1);
                 response.sendRedirect("/user");
+                break;
+            case "search":
+                String nameSearch = request.getParameter("name");
+                request.setAttribute("name", nameSearch);
+                List<User> userList = iUserService.search(nameSearch);
+                request.setAttribute("userList", userList);
+                request.getRequestDispatcher("/view/list.jsp").forward(request, response);
                 break;
         }
     }
