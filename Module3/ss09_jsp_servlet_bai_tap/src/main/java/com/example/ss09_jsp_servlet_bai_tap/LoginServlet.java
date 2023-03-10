@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         if (username.equals("admin") && passwork.equals("123abc")) {
             name = "Admin đăng nhập thành công";
             request.setAttribute("name", name);
-            request.setAttribute("date", new Date());
+            request.setAttribute("date", new Date());       
             request.getRequestDispatcher("/success.jsp").forward(request, response);
         } else {
             name = "Tên đăng nhập hoặc mật khẩu không đúng";
