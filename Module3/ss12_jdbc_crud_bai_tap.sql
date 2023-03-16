@@ -16,7 +16,7 @@ select * from user where id = ?;
 delimiter //
 create procedure find_by_id_user(in id int)
 begin select * from user 
-where user.id = id;
+where user.id = id;	
 end //
 delimiter ;
 call find_by_id_user(?);
