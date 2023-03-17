@@ -5,19 +5,19 @@ public class Book {
     private String title;
     private int pageSize;
     private String author;
-    private String category;
+    private int category;
 
     public Book() {
     }
 
-    public Book(String title, int pageSize, String author, String category) {
+    public Book(String title, int pageSize, String author, int category) {
         this.title = title;
         this.pageSize = pageSize;
         this.author = author;
         this.category = category;
     }
 
-    public Book(int id, String title, int pageSize, String author, String category) {
+    public Book(int id, String title, int pageSize, String author, int category) {
         this.id = id;
         this.title = title;
         this.pageSize = pageSize;
@@ -57,11 +57,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 }

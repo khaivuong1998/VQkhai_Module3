@@ -51,7 +51,7 @@ public class BooksServlet extends HttpServlet {
                 String title = request.getParameter("title");
                 int pageSize = Integer.parseInt(request.getParameter("pageSize"));
                 String author = request.getParameter("author");
-                String category = request.getParameter("category");
+                int category = Integer.parseInt(request.getParameter("category"));
                 Book book = new Book(title, pageSize, author, category);
                 iBooksService.save(book);
                 response.sendRedirect("/books");
@@ -61,7 +61,7 @@ public class BooksServlet extends HttpServlet {
                 String title1 = request.getParameter("title");
                 int pageSize1 = Integer.parseInt(request.getParameter("pageSize"));
                 String author1 = request.getParameter("author");
-                String category1 = request.getParameter("category");
+                int category1 = Integer.parseInt(request.getParameter("category"));
                 Book book1 = iBooksService.findByID(id1);
                 book1.setTitle(title1);
                 book1.setPageSize(pageSize1);

@@ -20,7 +20,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h2>Books</h2>
+<h1 style="text-align: center">Books</h1>
 <div class="container-fluid">
     <div class="row">
         <div class="col-6">
